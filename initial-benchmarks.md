@@ -51,7 +51,7 @@ Percentage of the requests served within a certain time (ms)
  Server Response (waiting, processing) is in the **400 ms** response range on average, so we'll see if we can improve that.
  
 
-###  Page Load Results
+###  Page Load Results: WebPageTest
 
 We used WebPageTest.org to gather initial performance metrics on page load performance.
 
@@ -113,3 +113,7 @@ We used WebPageTest.org to gather initial performance metrics on page load perfo
 
 
 ![](webpagetest-initial-metrics.png)
+
+###  Page Load Results: Google PageSpeed Insights
+
+
