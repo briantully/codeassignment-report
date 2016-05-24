@@ -3,7 +3,8 @@
         "google_code_prettify",
         "pdf-styling",
         "tufte",
-        "theme-default"
+        "theme-default",
+        "autocover"
     ],
     "pluginsConfig": {}
 }
