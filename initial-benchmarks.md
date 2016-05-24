@@ -144,7 +144,10 @@ Explore potential **back end** and **configuration** optimization opportunties b
   * Block cache
   * Views cache (both query and render cache)
   * Panels cache
+* Once all views have been properly configured with caching, export the views and place in a new module so that when a view is called it gets loaded from file rather than the database. With a proper opcode cache set up, this will be much faster than loading the view from the database.
+* ensure database logging is disabled and that syslog is enabled
 * explore use of external cache to reduce database usage and speed up queries (Memcached, Redis)
 * explore use of proxy server as an additional cache layer in front of Drupal (Varnish)
 * ensure cron (Drupal's "poormanscron") is disabled and that cron is being run as an external process (crontab, drush) to avoid users triggering cron and waiting for it to finish before page loads
+* perhaps explore cron modules like Elysia Cron or Ultimate Cron that allow more granular timings/groupings (i.e., import feeds every 5 minutes, but update search index every hour, etc)  
 * explore piggybacking on cron so that when Drupal's cron runs to import feeds and clear cache, a script runs immediately afterwards to "prime the cache"
