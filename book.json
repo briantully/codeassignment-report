@@ -9,7 +9,6 @@
   },
   "plugins": [
       "google_code_prettify",
-      "theme-default",
       "gitbookcode"
   ],
   "pluginsConfig": {}
