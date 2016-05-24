@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* [Initial Benchmarks](chapter1.md)
+* [Initial Benchmarks](initial-benchmarks.md)
 
