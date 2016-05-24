@@ -1,1 +1,4 @@
 /* CSS for pdf */
+table tbody {
+    font-size: .5em;
+}
