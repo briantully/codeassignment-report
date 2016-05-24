@@ -127,8 +127,24 @@ Google PageSpeed Insights revealed a score of 86 / 100 and suggested some change
 
 ### Initial Benchmarks Analysis
 
-There are some **front end** optimizations we can explore by:
+There are some **front end** optimizations we can implement by:
 * minifying Javascript
 * further aggregating CSS
 * moving Javascript to the footer and adding "defer" and async where possible in order to avoid the blocking of the page rendering
 * optimizing PNG images
+
+
+### Next Steps
+Explore potential **back end** and **configuration** optimization opportunties by:
+* profiling pages using xhprof and enabling MySQL slow query log
+* using Percona Toolkit to help identify troublesome database queries
+* identifying existing code that can be refactored to improve performance
+* ensure a proper cache configuration strategy is implemented for all relevant pieces of the puzzle:
+  * Page cache
+  * Block cache
+  * Views cache (both query and render cache)
+  * Panels cache
+* explore use of external cache to reduce database usage and speed up queries (Memcached, Redis)
+* explore use of proxy server as an additional cache layer in front of Drupal (Varnish)
+* ensure cron (Drupal's "poormanscron") is disabled and that cron is being run as an external process (crontab, drush) to avoid users triggering cron and waiting for it to finish before page loads
+* explore piggybacking on cron so that when Drupal's cron runs to import feeds and clear cache, a script runs immediately afterwards to "prime the cache"
