@@ -1,1 +1,8 @@
-{}
+{
+    "plugins": [
+        "google_code_prettify",
+        "pdf-styling",
+        "tufte"
+    ],
+    "pluginsConfig": {}
+}
