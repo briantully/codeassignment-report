@@ -1,16 +1,9 @@
 {
-    "styles": {
-        "website": "styles/website.css",
-        "ebook": "styles/ebook.css",
-        "pdf": "styles/pdf.css",
-        "mobi": "styles/mobi.css",
-        "epub": "styles/epub.css"
-    }
-
     "plugins": [
         "google_code_prettify",
         "pdf-styling",
-        "tufte"
+        "tufte",
+        "theme-default"
     ],
     "pluginsConfig": {}
 }
