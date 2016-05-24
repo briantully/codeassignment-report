@@ -1,4 +1,4 @@
 /* CSS for website */
-table {
-    font-size: .75em;
+table tbody {
+    font-size: .5em;
 }
