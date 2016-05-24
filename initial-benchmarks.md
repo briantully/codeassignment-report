@@ -48,7 +48,7 @@ Percentage of the requests served within a certain time (ms)
  100%    806 (longest request)
  </pre>
  
- Server Response (waiting, processing) is in the 400 ms response range on average, so we'll see if we can improve that.
+ Server Response (waiting, processing) is in the **400 ms** response range on average, so we'll see if we can improve that.
  
 
 ###  Page Load Results
@@ -93,7 +93,6 @@ We used WebPageTest.org to gather initial performance metrics on page load perfo
 			<td id="fvFullyLoaded" class="border" valign="middle">2.544s</td>
 			<td id="fvRequests" valign="middle">16</td>
 			<td id="fvBytes" valign="middle">99 KB</td>
-			<td id="fvCost" valign="middle"><a title="Find out how much it costs for someone to use your site on mobile networks around the world." href="http://whatdoesmysitecost.com/test/160524_7Q_1Q6F">$----</a></td>
 		</tr>
 		<tr>
 			<td align="left" class="even" valign="middle">Repeat View </td>
@@ -108,7 +107,6 @@ We used WebPageTest.org to gather initial performance metrics on page load perfo
 			<td id="rvFullyLoaded" class="even border" valign="middle">1.684s</td>
 			<td id="rvRequests" class="even" valign="middle">1</td>
 			<td id="rvBytes" class="even" valign="middle">37 KB</td>
-			<td></td>
 		</tr>
 	</tbody>
 </table>
