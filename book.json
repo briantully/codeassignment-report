@@ -1,16 +1,16 @@
 {
-    "styles": {
-        "website": "styles/website.css",
-        "ebook": "styles/ebook.css",
-        "pdf": "styles/pdf.css",
-        "print": "styles/print.css"
-    },
-    "plugins": [
-        "google_code_prettify",
-        "pdf-styling",
-        "tufte",
-        "theme-default",
-        "autocover"
-    ],
-    "pluginsConfig": {}
+ "title": "Acquia Code Assignment Report",
+ "author": "Brian Tully",
+  "styles": {
+      "website": "styles/website.css",
+      "ebook": "styles/ebook.css",
+      "pdf": "styles/pdf.css",
+      "print": "styles/print.css"
+  },
+  "plugins": [
+      "google_code_prettify",
+      "theme-default",
+      "gitbookcode"
+  ],
+  "pluginsConfig": {}
 }
