@@ -121,3 +121,14 @@ First view load time was 2.36s with repeat view of 1.68s. Time-to-first-byte (TT
 Google PageSpeed Insights revealed a score of 86 / 100 and suggested some changes to improve performance (see below).
 
 ![](google-pagespeed-initial-metrics.png)
+
+
+---
+
+### Initial Findings Summary
+
+There are some **front end** optimizations we can explore by:
+* minifying Javascript
+* further aggregating CSS
+* moving Javascript to the footer and adding "defer" and async where possible in order to avoid the blocking of the page rendering
+* optimizing PNG images
