@@ -125,7 +125,7 @@ Google PageSpeed Insights revealed a score of 86 / 100 and suggested some change
 
 ---
 
-### Initial Findings Summary
+### Initial Benchmarks Analysis
 
 There are some **front end** optimizations we can explore by:
 * minifying Javascript
