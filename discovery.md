@@ -193,11 +193,9 @@ The results below show that we are continuing to shave precious milleseconds off
 ![](compare-views-exporr.png)
 
 
-## Memcached Integration
+## Memcached
 
-
-
-
+To minimize direct hits on the database, memcached is recommended as a cache backend.
 
 ## Image / Theme Micro-optimizations
 To remove extra requests from occurring on the homepage, the following changes were made:
