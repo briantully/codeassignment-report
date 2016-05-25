@@ -166,3 +166,15 @@ Note that with advanced CSS/JS aggregation, our load time has decreased from 826
 
 In the chart below you'll see a comparison of the work done so far:
 ![](compare-advagg-enabled.png)
+
+
+## Exporting Views to Code
+A common performance boost is to export views (through the Views UI) and store them on the filesystem as PHP code. With a custom Drupal module, you can then tell Views that your exported views can be loaded from the filesystem rather than loading them from the database. There are multiple advantages:
+* Avoids many requests to the database
+* With a properly configured php.ini (realpath_cache_size) and opcode cache (OpCache, XCache, etc.), the code can get loaded directly from the opcode cache for an additional performance boost.
+
+The results below show that we are continuing to shave precious milleseconds off of both First View (-107ms) and Repeat View (-21ms).
+
+![](webpagetest-views-export.png)
+
+![](compare-views-exporr.png)
