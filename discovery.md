@@ -30,7 +30,7 @@ function ca_rewrite_node_view_alter(&$build) {
 }
 </code></pre>
 
-I experimented with this and refactored the code to use hook_node_presave() instead. The rationale is that the title filtering would only happen once when the node is created via feed import, rather than being run on every node on EVERY page view.
+I experimented with this and refactored the code to use hook_node_presave() instead. The rationale is that the title filtering would only happen once when the node is created via feed import, rather than being run on every node on EVERY page view. Why not filter the title and store it that way in the database so that we can take better advantage of caching strategies?
 
 <pre><code style="language-php">
 function ca_rewrite_node_presave($node) {
@@ -46,5 +46,50 @@ While the performance gains weren't as obvious as I'd hoped, there was a noticea
 
 ![](ca_rewrite-changes.png)
 
+While this appeared to be a small victory, it soon became obvious that this would only affect NEW nodes that are imported -- NOT existing nodes that had already been imported. So I added a hook_update_N function that leverages Drupal's Batch API and progressively updates all feed_item nodes with their filtered title.
 
+<pre><code style="language-php">
+/**
+ * Implements hook_update_N().
+ * Using Batch API, updates existing feed_items that were imported from feeds
+ * and changes the titles based on ca_rewrite_patterns
+ */
+function ca_rewrite_update_7000(&$sandbox) {
+  if (!isset($sandbox['max'])) {
+    $query = db_select('node', 'n');
+    $query->addExpression('COUNT(*)', 'count');
+    $query->condition('n.type', 'feed_item');
+    $sandbox['max'] = $query->execute()->fetchField();
+    $sandbox['current_position'] = 0;
+  }
+
+  if ($sandbox['max'] > 0) {
+    $limit = 10;
+    $nids = db_select('node', 'n')
+      ->fields('n', array('nid'))
+      ->condition('n.type', 'feed_item')
+      ->orderBy('n.nid')
+      ->range($sandbox['current_position'], $limit)
+      ->execute()
+      ->fetchCol();
+    $nodes = node_load_multiple($nids);
+    foreach ($nodes as $node) {
+      // ca_rewrite_node_presave() should filter the titles before saving
+      node_save($node);
+    }
+
+    $sandbox['current_position'] += $limit;
+    $sandbox['#finished'] = $sandbox['current_position'] / $sandbox['max'];
+  }
+  else {
+    $sandbox['#finished'] = 1;
+  }
+
+  if ($sandbox['#finished'] >= 1) {
+    return format_plural($sandbox['max'], '1 node updated', '@count nodes updated');
+  }
+}</code></pre>
+
+**RECOMMENDATION: Use the refactored version of ca_rewrite module
+**
 
