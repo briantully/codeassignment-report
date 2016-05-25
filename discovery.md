@@ -267,11 +267,6 @@ backend default {
   }
 }
 
-#acl internal {
-# "192.168.1.0"/24;
-# "127.0.0.1";
-#}
-
 acl purge {
  "localhost";
  "127.0.0.1";
@@ -372,19 +367,6 @@ sub vcl_recv {
       return (pipe);
   }
 
-#   # Stop people playing around with our website.
-#   # Do not allow outside access to cron.php or install.php or server-status. 
-#   # from IPs not included in 'internal' acl.
-#   # Do not allow DFind requests
-#   if ( ( (req.url ~ "^/(cron|install)\.php$" || req.url ~ "^/server-status.*$" ) 
-#     && !client.ip ~ internal ) 
-#     || req.url ~ "^/w00tw00t" ) {
-#       # Varnish may throw error 404 directly along with a nice message.
-#       error 404 "Page not found. You are out of your territory, man...";
-#       # Or if you like a custom Drupal error page you've defined at the path "404".
-#       # set req.url = "/404";
-#   }
-
   # Remove all cookies for static files, images etc
   # Varnish will always cache the following file types and serve them (during TTL).
   # Note that Drupal .htaccess sets max-age=1209600 (2 weeks) for static files.
@@ -403,8 +385,6 @@ sub vcl_recv {
  
     return (lookup);
   }
-
-
 
   ## Remove has_js, toolbar collapsed and Google Analytics cookies.
   set req.http.Cookie = regsuball(req.http.Cookie, "(^|;\s*)(__[a-z]+|has_js|Drupal.toolbar.collapsed|Drupal.tableDrag.showWeight)=[^;]*", "");
@@ -444,7 +424,6 @@ sub vcl_recv {
   if (req.http.Cookie ~ "(VARNISH|DRUPAL_UID|LOGGED_IN)") {
     return (pass);
   }
-
   return (lookup);
 }
 
@@ -479,16 +458,6 @@ sub vcl_fetch {
   # Otherwise, Varnish will set the default TTL by looking-up 
   # the Cache-Control headers returned by the backend
   # set beresp.ttl = 6h;
-
-  # if you have misbehaving sites (i.e Drupal6 or cookie-setters) 
-  # and you have forced Varnish to cache them in vcl_recv,
-  # here you can instruct Varnish about their ttl, and
-  # force Varnish to strip any cookies send from backend
-  #if (req.http.host ~ "(?i)^(www.)?linuxinsider.gr") {
-  # unset beresp.http.set-cookie;
-  # set beresp.http.Cache-Control = "public,max-age=602";
-  # set beresp.ttl = 120s;
-  #}
 }
 
 sub vcl_hit {
@@ -524,7 +493,6 @@ sub vcl_deliver {
   else {
     set resp.http.X-Varnish-Cache = "MISS";
   }
-
   return (deliver);
 }
 </code></pre>
