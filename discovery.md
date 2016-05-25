@@ -138,6 +138,14 @@ While this test was run directly after a cache clear and cron run, we were able 
 
 Even with this great news, there are still other options to explore and implement, which we'll highight below.
 
+FURTHER EXPLORATION
+There are several Drupal modules that provide a more extensive set of features/options for priming the cache, especially if an external cache like Varnish is used:
+* [Purge](https://www.drupal.org/project/purge)
+* [HTTP Parallel Request & Threading Library](https://www.drupal.org/project/httprl)
+* Cache Warmer
+* [Recacher](https://www.drupal.org/project/recacher)
+
+
 ## Other Configurations
 
 ### Voting API
@@ -166,6 +174,10 @@ Note that with advanced CSS/JS aggregation, our load time has decreased from 826
 
 In the chart below you'll see a comparison of the work done so far:
 ![](compare-advagg-enabled.png)
+
+**FURTHER EXPLORATION/RECOMMENDATION
+**
+* Ensure that whatever mechanism is clearing site cache (cron, drush) does so intelligently so that JS and CSS aggregate files are not frequently being rebuilt. We only want to rebuild these files when it's absolutely necessary (i.e., when a CSS or JS file has been changed). User's will cache these files in their browser and since these files are relatively large and block rendering, we want to limit the amount of times a user has to download them. By serving them from the user's browser cache, rendering performance is drastically improved.
 
 
 ## Exporting Views to Code
