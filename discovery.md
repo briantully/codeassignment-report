@@ -193,6 +193,12 @@ The results below show that we are continuing to shave precious milleseconds off
 ![](compare-views-exporr.png)
 
 
+
+## Image / Theme Micro-optimizations
+To remove extra requests from occurring on the homepage, the following changes were made:
+* Removed "rounded corners" panel style from Top Story panel since it used 5 separate images (requests) to create rounded corners and shadow. If this style is required it should be recreated using CSS border-radius and box-shadow properties in order to avoid 5 blocking requests.
+* The current theme (Mayo) uses a background image for the header. However the image is a white gradient that is only suitable for dark backgrounds and is not visible with the current theme colors. Since it is not visible, we recommend disabling the header_background property in the theme (currently set to enabled in the database) and therefore reduce another blocking request.
+
 ## Memcached
 
 To minimize direct hits on the database, memcached is recommended as a cache backend.
@@ -214,11 +220,25 @@ $conf['page_cache_without_database'] = TRUE;
 $conf['page_cache_invoke_hooks'] = FALSE;
 </code></pre>
 
-## Image / Theme Micro-optimizations
-To remove extra requests from occurring on the homepage, the following changes were made:
-* Removed "rounded corners" panel style from Top Story panel since it used 5 separate images (requests) to create rounded corners and shadow. If this style is required it should be recreated using CSS border-radius and box-shadow properties in order to avoid 5 blocking requests.
-* The current theme (Mayo) uses a background image for the header. However the image is a white gradient that is only suitable for dark backgrounds and is not visible with the current theme colors. Since it is not visible, we recommend disabling the header_background property in the theme (currently set to enabled in the database) and therefore reduce another blocking request.
+## Varnish
+Given the dynamic nature of the news aggregation site, we strongly recommend the use of Varnish as a reverse proxy, placed in front of the site to receive requests, and probe the site for new content in regular invervals and purge cache when necessary. A properly configured Varnish VCL file will boost performance, especially under a heavy load. Below are some configuration options that can be modified depending on host environment.
 
+Varnish server daemon options
+<pre><code>
+VARNISH_OPTS="-a :80 \
+ -T localhost:6082 \
+ -f /etc/varnish/default.vcl \
+ -p thread_pool_add_delay=2 \
+ -p thread_pools=4 \
+ -p thread_pool_min=100 \
+ -p thread_pool_max=1000 \
+ -p session_linger=100 \
+ -p sess_workspace=262144 \
+ -s malloc,5G"
+ 
+ # start varnish
+ varnishd $VARNISH_OPTS
+</code></pre>
 
 
 
