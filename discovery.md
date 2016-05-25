@@ -99,3 +99,22 @@ function ca_rewrite_update_7000(&$sandbox) {
 In the current site configuration, there are various cache configuration options within Drupal core (and modules) that are being underutilized.
 
 Because the business needs require that feeds get updated every 5 minutes, at the very least we should be setting a minimum cache lifetime to 5 minutes for page cache, block cache, views cache, panels cache, etc.
+
+Page Cache: 
+
+Block Cache:
+
+Views Cache:
+
+Panel Cache: simple cache - 5 minutes
+
+
+
+## Other Configurations
+
+### Voting API
+
+Currently set to "Tally results whenever a vote is cast".
+
+**Recommendation: change to "Tally votes on cron run"
+**
