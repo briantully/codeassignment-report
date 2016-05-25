@@ -146,3 +146,8 @@ Currently set to "Tally results whenever a vote is cast".
 
 **Suggestion: It is slightly more performant to change this to "Tally votes on cron run" but the client would need to weigh the performance gains against the slightly diminished user experience.
 **
+
+### Database Logging
+
+**RECOMMENDATION: Disable database logging and use syslog
+**
