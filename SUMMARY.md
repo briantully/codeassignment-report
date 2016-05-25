@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [Initial Benchmarks](initial-benchmarks.md)
-* [Discovery/Modifications](discovery.md)
+* [Discovery/Recommendations](discovery.md)
 
