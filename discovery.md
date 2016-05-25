@@ -138,12 +138,13 @@ While this test was run directly after a cache clear and cron run, we were able 
 
 Even with this great news, there are still other options to explore and implement, which we'll highight below.
 
-FURTHER EXPLORATION
+FURTHER EXPLORATION/RECOMENDATIONS
 There are several Drupal modules that provide a more extensive set of features/options for priming the cache, especially if an external cache like Varnish is used:
 * [Purge](https://www.drupal.org/project/purge)
 * [HTTP Parallel Request & Threading Library](https://www.drupal.org/project/httprl)
-* Cache Warmer
+* [Cache Warmer](https://www.drupal.org/project/cache_warmer)
 * [Recacher](https://www.drupal.org/project/recacher)
+* [Cache Expiration](https://www.drupal.org/project/expire)
 
 
 ## Other Configurations
