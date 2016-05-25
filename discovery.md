@@ -129,5 +129,5 @@ Because the business needs require that feeds get updated every 5 minutes, at th
 
 Currently set to "Tally results whenever a vote is cast".
 
-**Recommendation: change to "Tally votes on cron run"
+**Suggestion: It is slightly more performant to change this to "Tally votes on cron run" but the client would need to weigh the performance gains against the slightly diminished user experience.
 **
