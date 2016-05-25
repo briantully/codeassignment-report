@@ -127,7 +127,12 @@ Because the business needs require that feeds get updated every 5 minutes, at th
 
 **WEBPAGETEST RESULTS**
 
+![](webpagetest-cache-changes.png)
 
+![](webpagetest-cache-changes-1.png)
+As you'll see from the above charts, setting reasonable defaults for cache configuration improved our score and reduced page load significantly! Straight A's! Note that our load time has decreased from 2.36s to 826ms for first view and 1.68s to 425ms for repeat view. Our Time to First Byte has decreased from 684ms/682ms to 153ms/0.00ms (First View/Repeat View) -- yes 0!
+
+Even with this great news, there are still other options to explore and implement.
 
 ## Other Configurations
 
