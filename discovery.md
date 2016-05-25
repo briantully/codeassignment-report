@@ -30,7 +30,19 @@ function ca_rewrite_node_view_alter(&$build) {
 }
 </code></pre>
 
-I experimented with this and refactored the code to use hook_node_presave() instead. The rationale is that the title filtering would only happen once when the node is created via feed import, rather than being run on every node on EVERY page view. While the performance gains weren't as obvious as I'd hoped, there was a noticeable improvement of about 500ms on average (see chart from WebPageTest comparison below).
+I experimented with this and refactored the code to use hook_node_presave() instead. The rationale is that the title filtering would only happen once when the node is created via feed import, rather than being run on every node on EVERY page view.
+
+<pre><code style="language-php">
+function ca_rewrite_node_presave($node) {
+  if ($node->type == 'feed_item') {
+    // Alter title, run it through rewrite patterns:
+    $node->title = ca_rewrite_filter_process($node->title);
+  }
+}
+</code></pre>
+
+
+While the performance gains weren't as obvious as I'd hoped, there was a noticeable improvement of about 500ms on average (see chart from WebPageTest comparison below).
 
 ![](ca_rewrite-changes.png)
 
