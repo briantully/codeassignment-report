@@ -121,10 +121,12 @@ Because the business needs require that feeds get updated every 5 minutes, at th
 * Related Articles: set to 5 minutes for Query results and Rendered output
 * Top Rated: set to 5 minutes for Query results and Rendered output
 
-
 **Panel Cache: 
 **
 * set homepage panels (top, left, right) to use simple cache - 5 minutes
+
+**WEBPAGETEST RESULTS**
+
 
 
 ## Other Configurations
