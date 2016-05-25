@@ -100,13 +100,27 @@ In the current site configuration, there are various cache configuration options
 
 Because the business needs require that feeds get updated every 5 minutes, at the very least we should be setting a minimum cache lifetime to 5 minutes for page cache, block cache, views cache, panels cache, etc.
 
-Page Cache: 
+**Recommended Changes
+**
 
-Block Cache:
+**Drupal Core Cache: 
+**
+* Cache pages for anonymous users - ON
+* Cache blocks - ON
+* Minimum cache lifetime: 5 minutes
+* Expiration of cached pages: 5 minutes
+* Compress cached pages - ON
 
-Views Cache:
+**Views Cache:
+**
+* Content Lists: set to 5 minutes for Query results and Rendered output
+* Related Articles: set to 5 minutes for Query results and Rendered output
+* Top Rated: set to 5 minutes for Query results and Rendered output
 
-Panel Cache: simple cache - 5 minutes
+
+**Panel Cache: 
+**
+* set homepage panels (top, left, right) to use simple cache - 5 minutes
 
 
 
