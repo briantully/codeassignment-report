@@ -44,11 +44,14 @@ Let me know if it’s outside the scope of this assignment, but will I have acce
 
 > Though during normal load testing we do ensure the servers are sized correctly, consider it out of scope for this.
 
+
+---
+
+### Drupal Codebase
+
 The original and "optimized" codebase can be viewed at:
 * [original (master branch)](https://github.com/briantully/codeassignment-drupal)
 * ["optimized" (results branch)](https://github.com/briantully/codeassignment-drupal/tree/results)
 
 You can compare the original to the "optimized" codebase at:
 * [original vs. optimized](https://github.com/briantully/codeassignment-drupal/compare/master...results)
-
-
