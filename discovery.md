@@ -93,3 +93,9 @@ function ca_rewrite_update_7000(&$sandbox) {
 **RECOMMENDATION: Use the refactored version of ca_rewrite module
 **
 
+
+## Cache Configurations
+
+In the current site configuration, there are various cache configuration options within Drupal core (and modules) that are being underutilized.
+
+Because the business needs require that feeds get updated every 5 minutes, at the very least we should be setting a minimum cache lifetime to 5 minutes for page cache, block cache, views cache, panels cache, etc.
