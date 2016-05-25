@@ -151,3 +151,18 @@ Currently set to "Tally results whenever a vote is cast".
 
 **RECOMMENDATION: Disable database logging and use syslog
 **
+
+## Recommended Additional Front End Modules
+
+* [Speedy](https://www.drupal.org/project/speedy)
+  * minify Drupal core JS and aggregate
+* Advanced CSS/JS Aggregation
+* AdvAgg Modifier
+
+With Speedy and Advanced CSS/JS Aggregation modules enabled and configured, we see the following metrics:
+
+![](webpagetest-advagg-results.png)
+Note that with advanced CSS/JS aggregation, our load time has decreased from 826ms to **746ms** for first view and 425ms to **308ms** for repeat view.
+
+In the chart below you'll see a comparison of the work done so far:
+![](compare-advagg-enabled.png)
