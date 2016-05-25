@@ -132,10 +132,9 @@ Because the business needs require that feeds get updated every 5 minutes, at th
 ![](webpagetest-cache-changes-1.png)
 As you'll see from the above charts, setting reasonable defaults for cache configuration improved our score and reduced page load significantly! Straight A's! Note that our load time has decreased from 2.36s to 826ms for first view and 1.68s to 425ms for repeat view. Our Time to First Byte has decreased from 684ms/682ms to 153ms/0.00ms (First View/Repeat View) -- yes 0!
 
-While this test was run directly after a cache clear and cron run, we were able to "cheat" by "priming the cache. Because cron is now running externally, I have set up an additional cron job to scrape the site's sitemap.xml file and visit all links defined in the sitemap. This means that the cache is primed by a shell script rather than a user/customer visiting your site. The drupal-cache-warmer.sh shell script run by cron contains the following  **wget** command:
+While this test was run directly after a cache clear and cron run, we were able to "cheat" by "priming the cache. Because cron is now running externally, I have set up an additional cron job to scrape the site's sitemap.xml file and visit all links defined in the sitemap. This means that the cache is primed by a shell script rather than a user/customer visiting your site. The **drupal-cache-warmer.sh** shell script run by cron contains the following  **wget** command:
 
 > wget -q http://btully.dyndns.org/sitemap.xml --no-cache -O - | egrep -o "https://btully.dyndns.org[^<]+" | wget --header "Cookie: has_js=1" -U "cachewarmer" -q -i - -O /dev/null --wait 1
-
 
 Even with this great news, there are still other options to explore and implement, which we'll highight below.
 
