@@ -123,7 +123,6 @@ Because the business needs require that feeds get updated every 5 minutes, at th
 * set homepage panels (top, left, right) to use simple cache - 5 minutes
 
 
-
 ## Other Configurations
 
 ### Voting API
