@@ -230,7 +230,8 @@ Below are some configuration options that can be modified depending on host envi
 
 **Varnish server daemon options:
 **
-<pre><code>VARNISH_OPTS="-a :80 \
+<pre><code>
+VARNISH_OPTS="-a :80 \
  -T localhost:6082 \
  -f /etc/varnish/default.vcl \
  -p thread_pool_add_delay=2 \
@@ -246,7 +247,8 @@ varnishd $VARNISH_OPTS
 
 **Varnish VCL file optimized for Drupal:
 **
-<pre><code># A drupal varnish config file for varnish 3.x
+<pre><code>
+# A drupal varnish config file for varnish 3.x
 #
 # Will work with Drupal 7 and Pressflow 6.
 #
