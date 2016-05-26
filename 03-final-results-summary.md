@@ -76,9 +76,7 @@ Note that in the same 5 minute testing period, we were able to make **2x** as ma
 
 ![](images/final-results-pagespeed-insights.png)
 
-Our score improved from an **86** to a **95** thanks to many of the front end optimizations we implemented.
-
-
+Our score improved from an **86** /100 to a **95** /100 thanks to many of the front end optimizations we implemented.
 
 
 ### WebPageTest
