@@ -8,8 +8,8 @@
         "print": "styles/print.css"
     },
     "plugins": [
-        "google_code_prettify",
-        "prism"
+        "prism",
+        "-highlight"
     ],
     "pluginsConfig": {}
 }
