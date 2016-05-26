@@ -60,7 +60,7 @@ Percentage of the requests served within a certain time (ms)
 
 We used WebPageTest.org to gather initial performance metrics on page load performance. 
 
-First view load time was 2.36s with repeat view of 1.68s. Time-to-first-byte (TTFB) was 684ms.
+First view load time was **2.36s** with repeat view of **1.68s**. Time-to-first-byte (TTFB) was **684ms**.
 
 [](http://www.webpagetest.org/result/160524_7Q_1Q6F/)
 
@@ -123,7 +123,7 @@ First view load time was 2.36s with repeat view of 1.68s. Time-to-first-byte (TT
 
 ###  Page Load Results: Google PageSpeed Insights
 
-Google PageSpeed Insights revealed a score of 86 / 100 and suggested some changes to improve performance (see below).
+Google PageSpeed Insights revealed a score of **86 / 100** and suggested some changes to improve performance (see below).
 
 ![](images/google-pagespeed-initial-metrics.png)
 
