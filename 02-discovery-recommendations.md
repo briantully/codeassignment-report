@@ -165,7 +165,7 @@ Currently set to "Tally results whenever a vote is cast".
 
 * [Speedy](https://www.drupal.org/project/speedy)
   * minify Drupal core JS and aggregate
-* Advanced CSS/JS Aggregation
+* [Advanced CSS/JS Aggregation](https://www.drupal.org/project/advagg)
 * AdvAgg Modifier
 
 With Speedy and Advanced CSS/JS Aggregation modules enabled and configured, we see the following metrics:
@@ -186,7 +186,7 @@ A common performance boost is to export views (through the Views UI) and store t
 * Avoids many requests to the database
 * With a properly configured php.ini (realpath_cache_size) and opcode cache (OpCache, XCache, etc.), the code can get loaded directly from the opcode cache for an additional performance boost.
 
-The results below show that we are continuing to shave precious milleseconds off of both First View (-107ms) and Repeat View (-21ms).
+The results below show that we are continuing to shave precious milleseconds off of both First View **-107ms** and Repeat View **-21ms**.
 
 ![](images/webpagetest-views-export.png)
 
