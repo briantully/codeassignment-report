@@ -103,4 +103,19 @@ The charts below highlight and compare the incremental changes we've implemented
 ![](images/final-results-wpt-img-bytes.png)
 ![](images/final-results-wpt-css-req.png)
 ![](images/final-results-wpt-css-bytes.png)
-We hope this report provides valuable insights and recommendations that help you achieve your business goals. 
+
+### Codebase
+
+The supporting code/configuration changes can be viewed here.
+
+You can also download a drush archive dump here.
+
+You can view a comparison (diff) of the original code and the changes we made here.
+
+
+### Thank you
+
+Thank you for choosing Acquia. We hope this report provides valuable insights and recommendations that help you achieve your business goals. Please don't hesitate to contact me if you have any questions.
+
+Brian Tully
+brian.tully@gmail.com
