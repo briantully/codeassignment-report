@@ -504,7 +504,7 @@ sub vcl_deliver {
 
 
 ## Additional CSS Bundling Changes
-Google PageSpeed Insights and Yslow reported that there were 5 CSS files on the homepage that are blocking rendering. Despite our best efforts at using modules like Advanced CSS/JS Aggregation, CSS files were still not being aggregate to one file (not including any separate print stylesheet). We recommend adding the following code to the theme **template.php** in order to force a better grouping of CSS files and results in less files which means less blocking requests.
+Google PageSpeed Insights and Yslow reported that there were 5 CSS files on the homepage that are blocking rendering. Despite our best efforts at using modules like Advanced CSS/JS Aggregation, CSS files were still not being aggregate to one file (not including any separate print stylesheet). We recommend adding the following code to the theme **template.php** in order to force a better grouping of CSS files, resulting in less files and less blocking requests.
 
 <pre><code>
 /**
