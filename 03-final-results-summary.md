@@ -87,5 +87,11 @@ While the above screenshot applies to "cached" pages being served from Varnish, 
 
 ### WebPageTest
 
-As you see from the various results and charts below
+As you see from the various results and charts below, we came very close to the business goal of under 500ms for page load. With additional time/resources, I'm sure we could attain/exceed that goal. With proper hosting like Acquia Cloud, latency would be reduced -- shaving precious milliseconds off our tests and improving results.
 
+![](images/final-results-webpagetest.png)
+
+The charts below highlight and compare the incremental changes we've made during this assignment.
+
+
+![](images/final-results-wpt-fully-loaded.png)
