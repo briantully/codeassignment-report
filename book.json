@@ -1,14 +1,15 @@
 {
- "title": "Acquia Code Assignment: Web Performance Report",
- "author": "Brian Tully",
-  "styles": {
-      "website": "styles/website.css",
-      "ebook": "styles/ebook.css",
-      "pdf": "styles/pdf.css",
-      "print": "styles/print.css"
-  },
-  "plugins": [
-      "google_code_prettify"
-  ],
-  "pluginsConfig": {}
+    "title": "Acquia Code Assignment: Web Performance Report",
+    "author": "Brian Tully",
+    "styles": {
+        "website": "styles/website.css",
+        "ebook": "styles/ebook.css",
+        "pdf": "styles/pdf.css",
+        "print": "styles/print.css"
+    },
+    "plugins": [
+        "google_code_prettify",
+        "prism"
+    ],
+    "pluginsConfig": {}
 }
