@@ -69,22 +69,6 @@ Successful transactions:         800
 Failed transactions:	           0
 Longest transaction:	        7.94
 Shortest transaction:	        0.00
-
-// second request
-
-Transactions:		         800 hits
-Availability:		      100.00 %
-Elapsed time:		       29.15 secs
-Data transferred:	        7.64 MB
-Response time:		        0.33 secs
-Transaction rate:	       27.44 trans/sec
-Throughput:		        0.26 MB/sec
-Concurrency:		        8.97
-Successful transactions:         800
-Failed transactions:	           0
-Longest transaction:	        2.63
-Shortest transaction:	        0.00
-
 </code>
 </pre>
 
