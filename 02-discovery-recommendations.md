@@ -14,14 +14,14 @@ The use of the xhprof profiler did not reveal anything obvious. There were signi
 ## Percona Toolkit / MySQL Slow Query Log
 
 
-The MySQL slow query log was enabled in order to highlight any potential troublesome queries. Originally run with the default 1s limit, this produced no entries -- even with repeated cache clears and cron runs and using apachebench and siege to send many requests to the website. We reduced the limit down to 50ms and then 5ms before we started seeing entries. All queries were run through MySQL's EXPLAIN function to ensure they were using proper indexes and were optimized. 
+The MySQL slow query log was enabled in order to highlight any potential troublesome queries. Originally run with the default 1s limit, this produced no entries -- even with repeated cache clears and cron runs and using apachebench and siege to send many requests to the website. We reduced the limit down to 50ms and then 5ms before we started seeing entries. All queries were run through MySQL's EXPLAIN function to ensure they were using proper indexes and were optimized.
 
 **RECOMMENDATION: No obvious optimizations discovered at this time
 **
 
 ## Code Refactoring
 
-All core and contributed code looked up to date and working reliably. However, the **ca_rewrite module** has a potential optimization that should improve performance and cachebility. Currently the module uses hook_node_view_alter() to modify a node's title based on custom rewrite patterns. It modifies the title only on the render side, i.e., as a filter that gets called after the node is loaded and before the node is displayed. The concern is that for each view containing a list of nodes, for each node the view loads it then needs to call the database to get a list of rewrite patterns and apply them to each node in the view. On pages like the home page this gets expensive when you consider there are multiple (3) views. 
+All core and contributed code looked up to date and working reliably. However, the **ca_rewrite module** has a potential optimization that should improve performance and cachebility. Currently the module uses hook_node_view_alter() to modify a node's title based on custom rewrite patterns. It modifies the title only on the render side, i.e., as a filter that gets called after the node is loaded and before the node is displayed. The concern is that for each view containing a list of nodes, for each node the view loads it then needs to call the database to get a list of rewrite patterns and apply them to each node in the view. On pages like the home page this gets expensive when you consider there are multiple (3) views.
 
 <pre><code style="language-php">
 function ca_rewrite_node_view_alter(&$build) {
@@ -44,7 +44,7 @@ function ca_rewrite_node_presave($node) {
 
 While the performance gains weren't as obvious as I'd hoped, there was a noticeable improvement of about 500ms on average (see chart from WebPageTest comparison below).
 
-![](ca_rewrite-changes.png)
+![](images/ca_rewrite-changes.png)
 
 While this appeared to be a small victory, it soon became obvious that this would only affect NEW nodes that are imported -- NOT existing nodes that had already been imported. So I added a hook_update_N function that leverages Drupal's Batch API and progressively updates all feed_item nodes with their filtered title.
 
@@ -107,7 +107,7 @@ Because the business needs require that feeds get updated every 5 minutes, at th
 **Recommended Changes
 **
 
-**Drupal Core Cache: 
+**Drupal Core Cache:
 **
 * Cache pages for anonymous users - ON
 * Cache blocks - ON
@@ -121,15 +121,15 @@ Because the business needs require that feeds get updated every 5 minutes, at th
 * Related Articles: set to 5 minutes for Query results and Rendered output
 * Top Rated: set to 5 minutes for Query results and Rendered output
 
-**Panel Cache: 
+**Panel Cache:
 **
 * set homepage panels (top, left, right) to use simple cache - 5 minutes
 
 **WEBPAGETEST RESULTS**
 
-![](webpagetest-cache-changes.png)
+![](images/webpagetest-cache-changes.png)
 
-![](webpagetest-cache-changes-1.png)
+![](images/webpagetest-cache-changes-1.png)
 As you'll see from the above charts, setting reasonable defaults for cache configuration improved our score and reduced page load significantly! Straight A's! Note that our load time has decreased from 2.36s to 826ms for first view and 1.68s to 425ms for repeat view. Our Time to First Byte has decreased from 684ms/682ms to 153ms/0.00ms (First View/Repeat View) -- yes 0!
 
 While this test was run directly after a cache clear and cron run, we were able to "cheat" by "priming the cache. Because cron is now running externally, I have set up an additional cron job to scrape the site's sitemap.xml file and visit all links defined in the sitemap. This means that the cache is primed by a shell script rather than a user/customer visiting your site. The **drupal-cache-warmer.sh** shell script run by cron contains the following  **wget** command:
@@ -170,11 +170,11 @@ Currently set to "Tally results whenever a vote is cast".
 
 With Speedy and Advanced CSS/JS Aggregation modules enabled and configured, we see the following metrics:
 
-![](webpagetest-advagg-results.png)
+![](images/webpagetest-advagg-results.png)
 Note that with advanced CSS/JS aggregation, our load time has decreased from 826ms to **746ms** for first view and 425ms to **308ms** for repeat view.
 
 In the chart below you'll see a comparison of the work done so far:
-![](compare-advagg-enabled.png)
+![](images/compare-advagg-enabled.png)
 
 **FURTHER EXPLORATION/RECOMMENDATION
 **
@@ -188,9 +188,9 @@ A common performance boost is to export views (through the Views UI) and store t
 
 The results below show that we are continuing to shave precious milleseconds off of both First View (-107ms) and Repeat View (-21ms).
 
-![](webpagetest-views-export.png)
+![](images/webpagetest-views-export.png)
 
-![](compare-views-exporr.png)
+![](images/compare-views-exporr.png)
 
 
 
@@ -235,7 +235,7 @@ VARNISH_OPTS="-a :80 \
  -p session_linger=100 \
  -p sess_workspace=262144 \
  -s malloc,5G"
- 
+
  # start varnish
  varnishd $VARNISH_OPTS
 </code></pre>
@@ -257,7 +257,7 @@ backend default {
   .max_connections = 250;
   .connect_timeout = 300s;
   .first_byte_timeout = 300s;
-  .between_bytes_timeout = 300s; 
+  .between_bytes_timeout = 300s;
   .probe = {
     .url = "/";
     .timeout = 0.3s;
@@ -275,7 +275,7 @@ acl purge {
 #
 sub vcl_recv {
   # Setup grace mode.
-  # Allow Varnish to serve up stale (kept around) content if the backend is 
+  # Allow Varnish to serve up stale (kept around) content if the backend is
   #responding slowly or is down.
   # We accept serving 6h old object (plus its ttl)
   if (! req.backend.healthy) {
@@ -283,14 +283,14 @@ sub vcl_recv {
   } else {
    set req.grace = 15s;
   }
- 
+
   # If our backend is down, unset all cookies and serve pages from cache.
   if (!req.backend.healthy) {
     unset req.http.Cookie;
   }
 
-  # If the request is to purge cached items, check if the visitor is authorized 
-  # to invoke it. Only IPs in 'purge' acl we defined earlier are allowed to 
+  # If the request is to purge cached items, check if the visitor is authorized
+  # to invoke it. Only IPs in 'purge' acl we defined earlier are allowed to
   # purge content from cache.
   # Return error 405 if the purge request comes from non-authorized IP.
   if (req.request == "PURGE") {
@@ -304,7 +304,7 @@ sub vcl_recv {
   if (req.restarts == 0) {
     if (req.http.x-forwarded-for) {
       set req.http.X-Forwarded-For = req.http.X-Forwarded-For + ", " + client.ip;
-    } 
+    }
     else {
       set req.http.X-Forwarded-For = client.ip;
     }
@@ -330,8 +330,8 @@ sub vcl_recv {
     return (lookup);
   }
 
-  # Pass directly to backend (do not cache) requests for the following 
-  # paths/pages. 
+  # Pass directly to backend (do not cache) requests for the following
+  # paths/pages.
   # We tell Varnish not to cache Drupal edit or admin pages
   # Edit/Add paths that should never be cached according to your needs.
   if (req.url ~ "^/status\.php$"      ||
@@ -360,9 +360,9 @@ sub vcl_recv {
   # In some cases, i.e. when an editor uploads a file, it makes sense to pipe the
   # request directly to Apache for streaming.
   # Also, you should pipe the requests for very large files, i.e. downloads area.
-  if (req.url ~ "^/admin/content/backup_migrate/export"     || 
+  if (req.url ~ "^/admin/content/backup_migrate/export"     ||
       req.url ~ "^/admin/config/regional/translate/import"  ||
-      req.url ~ "^/batch/.*$"                               || 
+      req.url ~ "^/batch/.*$"                               ||
       req.url ~ "^/dls/.*$" ) {
       return (pipe);
   }
@@ -373,16 +373,16 @@ sub vcl_recv {
   if (req.url ~ "(?i)\.(bmp|png|gif|jpeg|jpg|doc|pdf|txt|ico|swf|css|js|html|htm)(\?[a-z0-9]+)?$") {
     // Remove the query string from static files
     set req.url = regsub(req.url, "\?.*$", "");
- 
+
     unset req.http.Cookie;
- 
+
     # Remove extra headers
     # We remove Vary and user-agent headers that any backend app may set
-    # If we don't do this, Varnish will cache a separate copy of the resource 
+    # If we don't do this, Varnish will cache a separate copy of the resource
     # for every different user-agent
     unset req.http.User-Agent;
     unset req.http.Vary;
- 
+
     return (lookup);
   }
 
@@ -442,20 +442,20 @@ sub vcl_fetch {
   if (req.url ~ "(?i)\.(bmp|png|gif|jpeg|jpg|doc|pdf|txt|ico|swf|css|js|html|htm)(\?[a-z0-9]+)?$") {
     unset beresp.http.set-cookie;
     # default in Drupal, you may comment out to apply for other cms as well
-    #set beresp.ttl = 2w; 
+    #set beresp.ttl = 2w;
   }
   if (beresp.status == 301) {
     set beresp.ttl = 1h;
     return(deliver);
   }
-  
+
   # Allow items to be stale if backend goes down. This means we keep around all
   # objects for 6 hours beyond their TTL which is 2 minutes So after 6h + 2 minutes
   # each object is definitely removed from cache
   set beresp.grace = 6h;
- 
-  # If you need to explicitly set default TTL, do it below. 
-  # Otherwise, Varnish will set the default TTL by looking-up 
+
+  # If you need to explicitly set default TTL, do it below.
+  # Otherwise, Varnish will set the default TTL by looking-up
   # the Cache-Control headers returned by the backend
   # set beresp.ttl = 6h;
 }
@@ -543,4 +543,3 @@ function mayo_css_alter(&$css) {
 </code></pre>
 
 This had the effect of removing 3 CSS files -- reducing the blocking requests from 5 CSS files to only 2.
-
