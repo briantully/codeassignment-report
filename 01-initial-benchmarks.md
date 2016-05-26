@@ -80,63 +80,7 @@ We used WebPageTest.org to gather initial performance metrics on page load perfo
 
 First view load time was **2.36s** with repeat view of **1.68s**. Time-to-first-byte (TTFB) was **684ms**.
 
-[](http://www.webpagetest.org/result/160524_7Q_1Q6F/)
-
-<table id="tableResults" class="pretty" align="center" border="1" cellpadding="10" cellspacing="0">
-	<tbody>
-		<tr>
-			<th align="center" class="empty" valign="middle" style="border:1px white solid;"></th>
-			<th align="center" class="empty" valign="middle" colspan="5"></th>
-			<th align="center" class="border" valign="middle" colspan="3">Document Complete</th>
-			<th align="center" class="border" valign="middle" colspan="4">Fully Loaded</th>
-		</tr>
-		<tr>
-			<th align="center" class="empty" valign="middle"></th>
-			<th align="center" valign="middle">Load Time</th>
-			<th align="center" valign="middle">First Byte</th>
-			<th align="center" valign="middle">Start Render</th>
-			<th align="center" valign="middle"><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index" target="_blank">Speed Index</a></th>
-			<th align="center" valign="middle">DOM Elements</th>
-			<th align="center" class="border" valign="middle">Time</th>
-			<th align="center" valign="middle">Requests</th>
-			<th align="center" valign="middle">Bytes In</th>
-			<th align="center" class="border" valign="middle">Time</th>
-			<th align="center" valign="middle">Requests</th>
-			<th align="center" valign="middle">Bytes In</th>
-			<th align="center" valign="middle">Cost</th>
-		</tr>
-		<tr>
-			<td align="left" valign="middle">First View </td>
-			<td id="fvLoadTime" valign="middle">2.366s</td>
-			<td id="fvTTFB" valign="middle">0.684s</td>
-			<td id="fvStartRender" valign="middle">2.196s</td>
-			<td id="fvVisual" valign="middle">2214</td>
-			<td id="fvDomElements" valign="middle">376</td>
-			<td id="fvDocComplete" class="border" valign="middle">2.366s</td>
-			<td id="fvRequestsDoc" valign="middle">15</td>
-			<td id="fvBytesDoc" valign="middle">94 KB</td>
-			<td id="fvFullyLoaded" class="border" valign="middle">2.544s</td>
-			<td id="fvRequests" valign="middle">16</td>
-			<td id="fvBytes" valign="middle">99 KB</td>
-		</tr>
-		<tr>
-			<td align="left" class="even" valign="middle">Repeat View </td>
-			<td id="rvLoadTime" class="even" valign="middle">1.684s</td>
-			<td id="rvTTFB" class="even" valign="middle">0.682s</td>
-			<td id="rvStartRender" class="even" valign="middle">0.803s</td>
-			<td id="rvVisual" class="even" valign="middle">1798</td>
-			<td id="rvDomElements" class="even" valign="middle">376</td>
-			<td id="rvDocComplete" class="even border" valign="middle">1.684s</td>
-			<td id="rvRequestsDoc" class="even" valign="middle">1</td>
-			<td id="rvBytesDoc" class="even" valign="middle">37 KB</td>
-			<td id="rvFullyLoaded" class="even border" valign="middle">1.684s</td>
-			<td id="rvRequests" class="even" valign="middle">1</td>
-			<td id="rvBytes" class="even" valign="middle">37 KB</td>
-		</tr>
-	</tbody>
-</table>
-
-
+![](images/webpagetest-initial-metrics-overview.png)
   ![](images/webpagetest-initial-metrics.png)
 
 ###  Page Load Results: Google PageSpeed Insights
