@@ -98,3 +98,8 @@ The charts below highlight and compare the incremental changes we've implemented
 ![](images/final-results-dom-content-loaded.png)
 ![](images/final-results-wpt-load-time-onload.png)
 ![](images/final-results-wpt-fully-loaded.png)
+![](images/final-results-wpt-speed-index.png)
+![](images/final-results-wpt-img-req.png)
+![](images/final-results-wpt-img-bytes.png)
+![](images/final-results-wpt-css-req.png)
+![](images/final-results-wpt-css-bytes.png)
