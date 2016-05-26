@@ -500,5 +500,46 @@ sub vcl_deliver {
 
 
 ## Additional CSS Bundling Changes
+Google PageSpeed Insights and Yslow reported that there were 5 CSS files on the homepage that are blocking rendering. Despite our best efforts at using modules like Advanced CSS/JS Aggregation, CSS files were still not being aggregate to one file (not including any separate print stylesheet). We recomment adding the following code to the theme **template.php** in order to force a better grouping of CSS files and results in less files which means less blocking requests.
 
+<pre><code>
+/**
+ * Implements hook_css_alter().
+ */
+function mayo_css_alter(&$css) {
 
+  // Sort CSS items, so that they appear in the correct order.
+  // This is taken from drupal_get_css().
+  uasort($css, 'drupal_sort_css_js');
+
+  // The Print style sheets
+  // Populate this array with the print css
+  $print = array();
+
+  // Add weight to the new $css array
+  // so every element keeps its position
+  $weight = 0;
+
+  foreach ($css as $name => $style) {
+    // Leave conditional stylesheets untouched
+    // and put all the rest inside a 0 group
+    if ($css[$name]['browsers']['!IE']) {
+      $css[$name]['group'] = 0;
+      $css[$name]['weight'] = ++$weight;
+      $css[$name]['every_page'] = TRUE;
+    }
+
+    // Move all the print style sheets to a new array
+    if ($css[$name]['media'] == 'print') {
+      // remove and add to a new array
+      $print[$name] = $css[$name];
+      unset($css[$name]);
+    }
+  }
+
+  // Merge the regular array and the print array
+  $css = array_merge($css, $print);
+}
+</code></pre>
+
+This had the effect of removing 3 CSS files, reducing the blocking requests from 5 to only 2.
