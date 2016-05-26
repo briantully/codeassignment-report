@@ -23,7 +23,7 @@ Longest transaction:	        0.04
 Shortest transaction:	       0.00
 </code></pre>
 
-Note that siege is reporting that our longest transaction is 0.04s (40ms) -- a major improvement over our original longest transaction of 1.4s! (1400ms).
+Note that siege is reporting that our longest transaction is **0.04s** (40ms) -- a major improvement over our original longest transaction of **7.94 seconds** (7940ms) -- **a reduction of 7900 ms!**
 
 ### ApacheBench
 
