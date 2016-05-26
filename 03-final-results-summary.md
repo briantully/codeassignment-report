@@ -108,11 +108,11 @@ The charts below highlight and compare the incremental changes we've implemented
 
 ### Final Drupal Codebase
 
-[The supporting code/configuration changes can be viewed here.](https://github.com/briantully/codeassignment-drupal/tree/results)
+* [The supporting code/configuration changes can be viewed here.](https://github.com/briantully/codeassignment-drupal/tree/results)
 
-You can also download a drush archive dump here.
+* You can also download a drush archive dump here.
 
-[You can view a comparison (diff) of the original code and the changes we made here.](https://github.com/briantully/codeassignment-drupal/compare/master...results)
+* [You can view a comparison (diff) of the original code and the changes we made here.](https://github.com/briantully/codeassignment-drupal/compare/master...results)
 
 ---
 
@@ -121,4 +121,5 @@ You can also download a drush archive dump here.
 Thank you for choosing Acquia. We hope this report provides valuable insights and recommendations that help you achieve your business goals. Please don't hesitate to contact me if you have any questions.
 
 Brian Tully
+
 brian.tully@gmail.com
