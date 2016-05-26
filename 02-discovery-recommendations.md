@@ -546,8 +546,7 @@ function mayo_css_alter(&$css) {
 }
 </code></pre>
 
-This had the effect of removing 3 CSS files -- reducing the blocking requests from 5 CSS files to only 2.
-
+This had the effect of removing 3 CSS file requests -- reducing the blocking requests from 5 CSS files down to only 2.
 
 
 ---
