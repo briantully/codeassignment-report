@@ -156,3 +156,9 @@ Explore potential **back end** and **configuration** optimization opportunties b
 * ensure cron (Drupal's "poormanscron") is disabled and that cron is being run as an external process (crontab, drush) to avoid users triggering cron and waiting for it to finish before page loads
 * perhaps explore cron modules like Elysia Cron or Ultimate Cron that allow more granular timings/groupings (i.e., import feeds every 5 minutes, but update search index every hour, etc)  
 * explore piggybacking on cron so that when Drupal's cron runs to import feeds and clear cache, a script runs immediately afterwards to "prime the cache"
+
+
+
+---
+
+### [Next: Discovery/Recommendations](02-discovery-recommendations.md)
