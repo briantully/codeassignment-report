@@ -72,6 +72,7 @@ Shortest transaction:	        0.00
 </code>
 </pre>
 
+The seige tool confirms that there is an average .40s (400ms) reponse time, and our longest transaction was **7.94 seconds**.
 
 ###  Page Load Results: WebPageTest
 
