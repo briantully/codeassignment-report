@@ -27,5 +27,46 @@ Note that siege is reporting that our longest transaction is 0.04s (40ms) -- a m
 
 ### ApacheBench
 
+ApacheBench also revealed very promising results:
 
+<pre>Finished 14757 requests
 
+Server Software:        Apache
+Server Hostname:        btully.dyndns.org
+Server Port:            80
+
+Document Path:          /
+Document Length:        39425 bytes
+
+Concurrency Level:      1
+Time taken for tests:   300.008 seconds
+Complete requests:      14757
+Failed requests:        0
+Keep-Alive requests:    0
+Total transferred:      591966517 bytes
+HTML transferred:       581794725 bytes
+Requests per second:    49.19 [#/sec] (mean)
+Time per request:       20.330 [ms] (mean)
+Time per request:       20.330 [ms] (mean, across all concurrent requests)
+Transfer rate:          1926.92 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        2    6   1.1      6      66
+Processing:    12   14   3.9     14     276
+Waiting:        2    4   1.8      4     171
+Total:         16   20   4.2     20     282
+
+Percentage of the requests served within a certain time (ms)
+  50%     20
+  66%     20
+  75%     21
+  80%     21
+  90%     22
+  95%     22
+  98%     24
+  99%     25
+ 100%    282 (longest request)
+ </pre>
+
+Note that in the same 5 minute testing period, we were able to make **2x** as many requests, **14757** vs 
