@@ -20,7 +20,7 @@ The MySQL slow query log was enabled in order to highlight any potential trouble
 **
 
 ## Drupal 8 Considerations
-Some consideration was given to suggest a migration to Drupal 8 in order to take advantage of some of the performance benefits that the BigPipe project provides. The more granular cache tagging of content and ability to more easily add these pieces of content dynamically with javascript would certainly boost "perceived performance". However an initial investigation into the modules being used on the current site revealed that some modules are not yet "ready-for-prime-time" in Drupal 8. Keeping a future migration to Drupal 8 as a promising recommendation, at this point we focused on improving the existing Drupal 7.x site.
+Some consideration was given to suggest a migration to Drupal 8 in order to take advantage of some of the performance benefits that the [BigPipe project](https://www.drupal.org/project/big_pipe) provides. The more granular cache tagging of content and ability to more easily add these pieces of content dynamically with javascript would certainly boost "perceived performance". However an initial investigation into the modules being used on the current site revealed that some modules are not yet "ready-for-prime-time" in Drupal 8. Keeping a future migration to Drupal 8 as a promising recommendation, at this point we focused on improving the existing Drupal 7.x site.
 
 ## Code Refactoring
 
