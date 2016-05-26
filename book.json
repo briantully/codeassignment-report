@@ -8,8 +8,7 @@
         "print": "styles/print.css"
     },
     "plugins": [
-        "prism",
-        "-highlight"
+        "prism"
     ],
     "pluginsConfig": {}
 }
