@@ -113,7 +113,7 @@ You can also download a drush archive dump here.
 You can view a comparison (diff) of the original code and the changes we made here.
 
 
-### Thank you
+### Thank You!
 
 Thank you for choosing Acquia. We hope this report provides valuable insights and recommendations that help you achieve your business goals. Please don't hesitate to contact me if you have any questions.
 
