@@ -104,14 +104,17 @@ The charts below highlight and compare the incremental changes we've implemented
 ![](images/final-results-wpt-css-req.png)
 ![](images/final-results-wpt-css-bytes.png)
 
-### Codebase
+---
 
-The supporting code/configuration changes can be viewed here.
+### Final Drupal Codebase
+
+[The supporting code/configuration changes can be viewed here.](https://github.com/briantully/codeassignment-drupal/tree/results)
 
 You can also download a drush archive dump here.
 
-You can view a comparison (diff) of the original code and the changes we made here.
+[You can view a comparison (diff) of the original code and the changes we made here.](https://github.com/briantully/codeassignment-drupal/compare/master...results)
 
+---
 
 ### Thank You!
 
