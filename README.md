@@ -60,4 +60,6 @@ You can compare the original to the "optimized" codebase at:
 
 ---
 
-[Next: Initial Benchmarks](01-initial-benchmarks.md)
+
+### [Next: Initial Benchmarks](01-initial-benchmarks.md)
+
