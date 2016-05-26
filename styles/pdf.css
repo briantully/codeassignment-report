@@ -1,4 +1,11 @@
 /* CSS for pdf */
-table tbody {
-    font-size: .85em;
+code {
+  font-size: .85em;
+  background: #eeeeee;
+}
+
+blockquote {
+  color: 666;
+  border-left: 3px solid #ccc;
+  padding-left: 10px;
 }
