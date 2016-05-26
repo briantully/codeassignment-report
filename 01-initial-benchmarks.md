@@ -1,4 +1,4 @@
-# Initial Benchmarks
+# 1. Initial Benchmarks
 
 Since our scope is performance and not scalability, we gathered some initial performance metrics using ApacheBench to test the web server response time.
 
