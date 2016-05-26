@@ -51,7 +51,7 @@ Let me know if it’s outside the scope of this assignment, but will I have acce
 
 The original and "optimized" codebase can be viewed at:
 * [original (master branch)](https://github.com/briantully/codeassignment-drupal)
-* ["optimized" (results branch)](https://github.com/briantully/codeassignment-drupal/tree/results)
+* [optimized (results branch)](https://github.com/briantully/codeassignment-drupal/tree/results)
 
 You can compare the original to the "optimized" codebase at:
 * [original vs. optimized](https://github.com/briantully/codeassignment-drupal/compare/master...results)
