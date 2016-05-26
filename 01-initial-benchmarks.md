@@ -11,7 +11,7 @@ Since our scope is performance and not scalability, we gathered some initial per
 
 The above command sends a request to the site for a total of 5 minutes so that we can see the effect of any cron/cache clear.
 
-### Server Response Results
+### Server Response Results: ApacheBench
 <pre>
 Finished 756 requests
 
@@ -54,7 +54,40 @@ Percentage of the requests served within a certain time (ms)
  </pre>
  
  Server Response (waiting, processing) is in the **400 ms** response range on average, so we'll see if we can improve that.
- 
+
+### Server Response Results: Siege
+<pre><code>
+Transactions:		         800 hits
+Availability:		      100.00 %
+Elapsed time:		       34.33 secs
+Data transferred:	        7.64 MB
+Response time:		        0.40 secs
+Transaction rate:	       23.30 trans/sec
+Throughput:		        0.22 MB/sec
+Concurrency:		        9.23
+Successful transactions:         800
+Failed transactions:	           0
+Longest transaction:	        7.94
+Shortest transaction:	        0.00
+
+// second request
+
+Transactions:		         800 hits
+Availability:		      100.00 %
+Elapsed time:		       29.15 secs
+Data transferred:	        7.64 MB
+Response time:		        0.33 secs
+Transaction rate:	       27.44 trans/sec
+Throughput:		        0.26 MB/sec
+Concurrency:		        8.97
+Successful transactions:         800
+Failed transactions:	           0
+Longest transaction:	        2.63
+Shortest transaction:	        0.00
+
+</code>
+</pre>
+
 
 ###  Page Load Results: WebPageTest
 
