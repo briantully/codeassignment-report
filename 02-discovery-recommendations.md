@@ -1,5 +1,5 @@
 
-# 2.Discovery/Recommendations
+# 2. Discovery/Recommendations
 
 
 ## xhprof Profiling
