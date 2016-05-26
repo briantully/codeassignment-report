@@ -110,7 +110,9 @@ The charts below highlight and compare the incremental changes we've implemented
 
 * [The supporting code/configuration changes can be viewed here.](https://github.com/briantully/codeassignment-drupal/tree/results)
 
-* You can also download a drush archive dump here.
+* [Commit history of the changes we made can be viewed here.](https://github.com/briantully/codeassignment-drupal/commits/results)
+ 
+* [You can also download a drush archive dump here.](https://github.com/briantully/codeassignment-drupal/blob/results/codeassignment-final.tar.gz)
 
 * [You can view a comparison (diff) of the original code and the changes we made here.](https://github.com/briantully/codeassignment-drupal/compare/master...results)
 
