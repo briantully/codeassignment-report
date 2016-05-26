@@ -79,7 +79,13 @@ Note that in the same 5 minute testing period, we were able to make **2x** as ma
 Our score improved from an **86** /100 to a **95** /100 -- mostly due to the front end optimizations we implemented.
 
 
+
+### Safari DevTools
+![](images/safari-devtools-final.png)
+
+While the above screenshot applies to "cached" pages being served from Varnish, it still highlights a major performance boost. With proper methods in place to intelligently "prime" Varnish's cache, a majority of page requests can be served directly from Varnish rather than directly hitting Drupal.
+
 ### WebPageTest
 
-
+As you see from the various results and charts below
 
