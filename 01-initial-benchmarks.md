@@ -114,13 +114,13 @@ First view load time was 2.36s with repeat view of 1.68s. Time-to-first-byte (TT
 </table>
 
 
-![](webpagetest-initial-metrics.png)
+  ![](images/webpagetest-initial-metrics.png)
 
 ###  Page Load Results: Google PageSpeed Insights
 
 Google PageSpeed Insights revealed a score of 86 / 100 and suggested some changes to improve performance (see below).
 
-![](google-pagespeed-initial-metrics.png)
+![](images/google-pagespeed-initial-metrics.png)
 
 
 ---
