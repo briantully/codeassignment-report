@@ -55,3 +55,9 @@ The original and "optimized" codebase can be viewed at:
 
 You can compare the original to the "optimized" codebase at:
 * [original vs. optimized](https://github.com/briantully/codeassignment-drupal/compare/master...results)
+
+
+
+---
+
+[Next: Initial Benchmarks](01-initial-benchmarks.md)
