@@ -221,10 +221,15 @@ $conf['page_cache_invoke_hooks'] = FALSE;
 </code></pre>
 
 ## Varnish
-Given the dynamic nature of the news aggregation site, we strongly recommend the use of Varnish as a reverse proxy, placed in front of the site to receive requests, and probe the site for new content in regular invervals and purge cache when necessary. A properly configured Varnish VCL file will boost performance, especially under a heavy load. Below are some configuration options that can be modified depending on host environment.
 
-Varnish server daemon options
-<pre><code>
+Given the dynamic nature of the news aggregation site, we strongly recommend the use of Varnish as a reverse proxy, placed in front of the site to receive requests, and probe the site for new content in regular invervals and purge cache when necessary. A properly configured Varnish VCL file will boost performance, especially under a heavy load. 
+
+* [Varnish module](https://www.drupal.org/project/varnish)
+
+Below are some configuration options that can be modified depending on host environment.
+
+**Varnish server daemon options:
+**<pre><code>
 VARNISH_OPTS="-a :80 \
  -T localhost:6082 \
  -f /etc/varnish/default.vcl \
@@ -235,13 +240,11 @@ VARNISH_OPTS="-a :80 \
  -p session_linger=100 \
  -p sess_workspace=262144 \
  -s malloc,5G"
-
- # start varnish
- varnishd $VARNISH_OPTS
+varnishd $VARNISH_OPTS
 </code></pre>
 
-Here is a Varnish VCL file optimized for Drupal:
-
+**Varnish VCL file optimized for Drupal:
+**
 <pre><code>
 # A drupal varnish config file for varnish 3.x
 #
