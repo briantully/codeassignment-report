@@ -103,3 +103,4 @@ The charts below highlight and compare the incremental changes we've implemented
 ![](images/final-results-wpt-img-bytes.png)
 ![](images/final-results-wpt-css-req.png)
 ![](images/final-results-wpt-css-bytes.png)
+We hope this report provides valuable insights and recommendations that help you achieve your business goals. 
