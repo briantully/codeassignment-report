@@ -229,8 +229,8 @@ Given the dynamic nature of the news aggregation site, we strongly recommend the
 Below are some configuration options that can be modified depending on host environment.
 
 **Varnish server daemon options:
-**<pre><code>
-VARNISH_OPTS="-a :80 \
+**
+<pre><code>VARNISH_OPTS="-a :80 \
  -T localhost:6082 \
  -f /etc/varnish/default.vcl \
  -p thread_pool_add_delay=2 \
@@ -240,13 +240,13 @@ VARNISH_OPTS="-a :80 \
  -p session_linger=100 \
  -p sess_workspace=262144 \
  -s malloc,5G"
+# start varnish 
 varnishd $VARNISH_OPTS
 </code></pre>
 
 **Varnish VCL file optimized for Drupal:
 **
-<pre><code>
-# A drupal varnish config file for varnish 3.x
+<pre><code># A drupal varnish config file for varnish 3.x
 #
 # Will work with Drupal 7 and Pressflow 6.
 #
@@ -499,7 +499,6 @@ sub vcl_deliver {
   return (deliver);
 }
 </code></pre>
-
 
 
 ## Additional CSS Bundling Changes
