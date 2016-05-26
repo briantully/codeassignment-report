@@ -91,7 +91,10 @@ As you see from the various results and charts below, we came very close to the 
 
 ![](images/final-results-webpagetest.png)
 
-The charts below highlight and compare the incremental changes we've made during this assignment.
-
-
+The charts below highlight and compare the incremental changes we've implemented during this assignment.
+![](images/final-results-wpt-visual-progress.png)
+![](images/final-results-wpt-visual-progress.png)
+![](images/final-results-wpt-TTFB.png)
+![](images/final-results-dom-content-loaded.png)
+![](images/final-results-wpt-load-time-onload.png)
 ![](images/final-results-wpt-fully-loaded.png)
