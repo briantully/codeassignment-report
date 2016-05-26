@@ -1,4 +1,9 @@
 /* CSS for pdf */
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+}
+
 code {
   font-size: .85em;
   background: #eeeeee;
