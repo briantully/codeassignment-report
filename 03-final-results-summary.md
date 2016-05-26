@@ -69,4 +69,4 @@ Percentage of the requests served within a certain time (ms)
  100%    282 (longest request)
  </pre>
 
-Note that in the same 5 minute testing period, we were able to make **2x** as many requests, **14757** vs 756. Our mean time per request was reduced from 396.876 ms all the way down to 20.330 ms - **an improvement of 376.546 ms** - and our longest request was reduced from 800 ms down to 282 ms -- an improvment of 
+Note that in the same 5 minute testing period, we were able to make **2x** as many requests, **14757** vs 756. Our mean time per request was reduced from 396.876 ms all the way down to 20.330 ms - **an improvement of 376.546 ms** - and our longest request was reduced from 806 ms down to 282 ms -- **an improvement of 524 ms!**
