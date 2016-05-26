@@ -19,6 +19,9 @@ The MySQL slow query log was enabled in order to highlight any potential trouble
 **RECOMMENDATION: No obvious optimizations discovered at this time
 **
 
+## Drupal 8 Considerations
+Some consideration was given to suggest a migration to Drupal 8 in order to take advantage of some of the performance benefits that the BigPipe project provides. The more granular cache tagging of content and ability to more easily add these pieces of content dynamically with javascript would certainly boost "perceived performance". However an initial investigation into the modules being used on the current site revealed that some modules are not yet "ready-for-prime-time" in Drupal 8. Keeping a future migration to Drupal 8 as a promising recommendation, at this point we focused on improving the existing Drupal 7.x site.
+
 ## Code Refactoring
 
 All core and contributed code looked up to date and working reliably. However, the **ca_rewrite module** has a potential optimization that should improve performance and cachebility. Currently the module uses hook_node_view_alter() to modify a node's title based on custom rewrite patterns. It modifies the title only on the render side, i.e., as a filter that gets called after the node is loaded and before the node is displayed. The concern is that for each view containing a list of nodes, for each node the view loads it then needs to call the database to get a list of rewrite patterns and apply them to each node in the view. On pages like the home page this gets expensive when you consider there are multiple (3) views.
