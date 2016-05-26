@@ -1,8 +1,9 @@
-# 1. Initial Benchmarks
 
-Disclaimer
+**Disclaimer**
 
 Note that all tools/services used in this report were measuring the site as hosted on my 2012 MacBook Pro connected to the Internet via WiFi and using DynamicDNS and a router configured with port forwarding to send external requests to my laptop. This introduces some latency and should be taken into consideration when looking at final numbers. A Drupal site hosted on Acquia Cloud surely would have much better numbers :)
+
+# 1. Initial Benchmarks
 
 Since our scope is performance and not scalability, we gathered some initial performance metrics using ApacheBench to test the web server response time.
 
