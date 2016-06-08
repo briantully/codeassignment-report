@@ -96,10 +96,10 @@ function ca_rewrite_update_7000(&$sandbox) {
 **RECOMMENDATION: Use the refactored version of ca_rewrite module
 **
 
-## Image Optimization
+## Image Optimizations
 * The theme (Mayo) settings was configured to use a header watermark background image. Since we want to minimize the number of blocking requests on initial page load, we looked to optimize any images.
 * Image "pat-1.png" was originally 7.5K and took 15ms to load
-* optimized (lossless) down to 2.5K and now takes **4ms** to load
+* Optimized (lossless) down to 2.5K and now takes **4ms** to load
 
 
 ## Cache Configurations
