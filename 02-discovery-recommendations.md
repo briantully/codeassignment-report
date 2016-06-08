@@ -200,9 +200,23 @@ The results below show that we are continuing to shave precious milleseconds off
 
 ## Image / Theme Micro-optimizations
 To remove extra requests from occurring on the homepage, the following changes were made:
-* Removed "rounded corners" panel style from Top Story panel since it used 5 separate images (requests) to create rounded corners and shadow. If this style is required it should be recreated using CSS border-radius and box-shadow properties in order to avoid 5 blocking requests.
+* Removed "rounded corners" panel style from Top Story panel since it used 5 separate images (requests) to create rounded corners and shadow. 
+![](images/rounded-corners-panel-style.png)
+![](images/panel-style-remove-rounded-corners.png)
+![](images/rounded-corners-removed.png)
+* If this "rounded corners" style is considered essential it should be recreated using CSS border-radius and box-shadow properties in order to avoid 5 blocking requests. Example:
 
+<pre>
+.front .panel-col-top .inside {
+  border: 1px solid #eee;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.35);
+}
+</pre>
 
+* Using the above CSS, we achieve the same visual style (see screenshot below), but save on 5 blocking requests
+![](images/rounded-corners-css.png)
 
 * The current theme (Mayo) uses a background image for the header. However the image is a white gradient that is only suitable for dark backgrounds and is not visible with the current theme colors. Since it is not visible, we recommend disabling the header_background property in the theme (currently set to enabled in the database) and therefore reduce another blocking request.
 ![](images/header-watermark-removed.png)
