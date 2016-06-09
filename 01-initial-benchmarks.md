@@ -56,7 +56,7 @@ Percentage of the requests served within a certain time (ms)
  Server Response (waiting, processing) is in the **400 ms** response range on average, so we'll see if we can improve that.
 
 ### Server Response Results: Siege
-<pre><code>
+<pre>
 Transactions:		         800 hits
 Availability:		      100.00 %
 Elapsed time:		       34.33 secs
@@ -69,7 +69,6 @@ Successful transactions:         800
 Failed transactions:	           0
 Longest transaction:	        7.94
 Shortest transaction:	        0.00
-</code>
 </pre>
 
 The seige tool confirms that there is an average .40s (400ms) reponse time, and our longest transaction was **7.94 seconds**.
