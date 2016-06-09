@@ -57,10 +57,7 @@ You can compare the original to the "optimized" codebase at:
 * [original vs. optimized](https://github.com/briantully/codeassignment-drupal/compare/master...results)
 
 ### Spoiler Alert
-Before - Video of original site:
-
-
-2.5s page load time
+Before - Video of original site: 2.4s page load time
 
 [After - Video of site with proposed changes](http://www.webpagetest.org/video/view.php?id=160526_RQ_BYG.1.0&embed=1&width=520&height=432): **.5s** page load time
 
