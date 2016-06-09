@@ -59,11 +59,14 @@ You can compare the original to the "optimized" codebase at:
 ### Spoiler Alert
 Before - Video of original site:
 [](images/video-before.mp4)
+
 2.5s page load time
 
 After - Video of site with proposed changes:
 [](images/video-after.mp4)
-0.5s page load time
+
+.5s page load time
+
 ---
 
 
