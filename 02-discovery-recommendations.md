@@ -355,8 +355,8 @@ sub vcl_recv {
   }
 
   # Always cache things with these extensions
-  if (req.url ~ "\.(js|css|jpg|jpeg|png|gif|gz|tgz|bz2|tbz|mp3|ogg|swf)$") {
-    return (lookup);
+  if (req.url ~ "\.(ico|js|css|jpg|jpeg|png|gif|gz|tgz|bz2|tbz|mp3|ogg|swf)$") {
+    unset req.http.Cookie;return (lookup);
   }
 
   # Pass directly to backend (do not cache) requests for the following
