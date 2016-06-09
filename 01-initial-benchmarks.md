@@ -12,7 +12,7 @@ Since our scope is performance and not scalability, we gathered some initial per
 The above command sends a request to the site for a total of 5 minutes so that we can see the effect of any cron/cache clear.
 
 ### Server Response Results: ApacheBench
-<pre>
+<pre><code>
 Finished 756 requests
 
 Server Software:        Apache
@@ -51,12 +51,16 @@ Percentage of the requests served within a certain time (ms)
   98%    512
   99%    568
  100%    806 (longest request)
- </pre>
+ </code></pre>
  
  Server Response (waiting, processing) is in the **400 ms** response range on average, so we'll see if we can improve that.
+ 
+ We then used the siege benchmark utility to test a small load of concurrent users (10) and gather load metrics.
+ 
+ <pre><code>siege -c 10 -r 10 http://btully.dyndns.org</code></pre>
 
 ### Server Response Results: Siege
-<pre>
+<pre><code>
 Transactions:		         800 hits
 Availability:		      100.00 %
 Elapsed time:		       34.33 secs
@@ -69,7 +73,7 @@ Successful transactions:         800
 Failed transactions:	           0
 Longest transaction:	        7.94
 Shortest transaction:	        0.00
-</pre>
+</code></pre>
 
 The seige tool confirms that there is an average .40s (400ms) reponse time, and our longest transaction was **7.94 seconds**.
 
