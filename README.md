@@ -58,9 +58,9 @@ You can compare the original to the "optimized" codebase at:
 
 ### WARNING: Spoiler Alert!
 
-[Before - Video of original site](http://www.webpagetest.org/video/view.php?id=160524_7Q_1Q6F.1.0&embed=1&width=1040&height=864): **2.4s** page load time
+[Before - Video of original site](http://www.webpagetest.org/video/view.php?id=160524_7Q_1Q6F.1.0&embed=1&width=960&height=798): **2.4s** page load time
 
-[After - Video of site with proposed changes](http://www.webpagetest.org/video/view.php?id=160526_RQ_BYG.1.0&embed=1&width=1040&height=864): **.5s** page load time
+[After - Video of site with proposed changes](http://www.webpagetest.org/video/view.php?id=160526_RQ_BYG.1.0&embed=1&width=960&height=798): **.5s** page load time
 
 ---
 
